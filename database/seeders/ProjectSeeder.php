@@ -28,11 +28,11 @@ class ProjectSeeder extends Seeder
 
             $project = new Project();
             $project->name = $faker->sentence(2, true);
+            $project->type_id = $faker->boolean(60) ? $faker->numberBetween(1, 3) : null;
             $project->slug = Str::slug($project->name);
             $project->git_url = $faker->url();
             $project->description = $faker->paragraph(2, true);
             $project->created_at = $faker->dateTime();
-            $project->type_id = $faker->numberBetween(0, 3);
             $project->save();
             //
         }
