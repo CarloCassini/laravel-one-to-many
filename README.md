@@ -96,6 +96,10 @@ Eseguo la migrazione appena creata con il comando
 php artisan migrate
 ```
 
+### approfondisci -> aggiungere una colonna dopo
+
+https://www.laramind.com/blog/laravel-migration-approfondimenti/
+
 ## Aggiunta di dati
 
 Aggiungo un paio di righe da [PHPMyAdmin](http://localhost/phpMyAdmin/?lang=en) per visualizzare dati di esempio

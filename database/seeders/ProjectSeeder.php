@@ -32,6 +32,7 @@ class ProjectSeeder extends Seeder
             $project->git_url = $faker->url();
             $project->description = $faker->paragraph(2, true);
             $project->created_at = $faker->dateTime();
+            $project->type_id = $faker->numberBetween(0, 3);
             $project->save();
             //
         }
