@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->char('color', 7);
 
             // non mi servono le date di implementazione dei campi
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 
