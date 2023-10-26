@@ -84,7 +84,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("admin.projects.edit", compact("project"));
+        $types = Type::all();
+        return view("admin.projects.edit", compact("project", "types"));
     }
 
     /**
@@ -100,6 +101,7 @@ class ProjectController extends Controller
         // gestisco lo slug
         // ma gestito prima di update, evidentemente prende esattamente le righe toccate
         $project->slug = Str::slug($project->name);
+
 
         $project->update($data);
 
