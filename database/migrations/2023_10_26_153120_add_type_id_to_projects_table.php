@@ -14,9 +14,11 @@ return new class extends Migration {
     {
         Schema::table('projects', function (Blueprint $table) {
 
-            $table->bigInteger('type_id')->nullable;
-
-
+            $table->foreignId('type_id')
+                ->after('id')
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
         });
     }
 
@@ -28,6 +30,9 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
+            // prima si droppa la relazione
+            $table->dropForeign('projects_type_id_foreign');
+            // poi si droppa la colonna
             $table->dropColumn('type_id');
             //
         });
