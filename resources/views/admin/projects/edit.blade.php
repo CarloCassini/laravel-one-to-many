@@ -35,7 +35,7 @@
       @csrf
       @method('PUT')
       
-      @dump(old('name'))
+
       <label for="name" class="form-label" >Name</label>
       <input type="text" class="form-control
       @error('name')
