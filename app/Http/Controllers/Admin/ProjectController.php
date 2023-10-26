@@ -6,15 +6,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 // deve andare a perscare il controller dalla cartella controllers
 use App\Http\Controllers\Controller;
 
 // per usare la classe STR
 use Illuminate\Support\Str;
-// per usare la Validazione
-use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
