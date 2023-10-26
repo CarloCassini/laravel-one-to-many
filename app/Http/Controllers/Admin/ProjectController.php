@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 // use Illuminate\Http\Request;
 
 // deve andare a perscare il controller dalla cartella controllers
@@ -34,7 +35,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
         //
     }
 
@@ -49,8 +51,10 @@ class ProjectController extends Controller
         // se la validazione non va a buon fine tutto si blocca qui e rimanda alla pagina di create
         $data = $request->validated();
 
+
         $project = new Project();
         $project->fill($data);
+
         $project->slug = Str::slug($project->name);
         $project->save();
 

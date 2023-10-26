@@ -13,8 +13,9 @@ class Project extends Model
 
     protected $fillable = [
         'name',
-        // 'git_url',
+        'git_url',
         'description',
+        'type_id',
     ];
 
     // inserisco la relazione tra i modelli (da fare anche nel secondo modello)

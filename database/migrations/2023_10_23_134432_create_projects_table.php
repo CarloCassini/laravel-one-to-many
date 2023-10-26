@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             // comincio la trascrizione dei dati della tabella
-            $table->string('name', 50);
+            $table->string('name', 50)->unique();
             $table->string('slug');
             $table->text('git_url')->nullable();
             $table->text('description');
