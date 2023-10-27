@@ -43,7 +43,7 @@
                                 </a>
 
                                 <!-- Button trigger modal -->
-                                <span class="delete-btn" data-bs-toggle="modal" data-bs-target="#ciccio{{ $type->id }}">
+                                <span class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal-{{ $type->id }}">
                                     <i class="fa-solid fa-trash"></i>
                                 </span>
 
@@ -65,16 +65,17 @@
 
         <!-- Modal -->
         @foreach ($types as $type)
-            <div class="modal fade" id="ciccio{{ $type->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="modal-{{ $type->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel"> Cancellare {{ $type->name }}</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel"> Cancellare
+                                {{ $type->label }}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            confermare la cancellazione di <span class="text-danger fw-bolder">{{ $type->name }}</span>
+                            confermare la cancellazione di <span class="text-danger fw-bolder">{{ $type->label }}</span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Decline</button>
