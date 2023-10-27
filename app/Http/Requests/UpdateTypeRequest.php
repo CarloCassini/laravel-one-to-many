@@ -23,8 +23,9 @@ class UpdateTypeRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'label' => ['required', 'string', 'max:20', 'unique:types,label'],
+            'label' => ['required', 'string', 'max:20', 'unique:types,label,' . $this->type->id],
             'color' => ['required', 'regex:/^#([a-f0-9]{6}|[a-f0-9]{3})$/']
         ];
     }
