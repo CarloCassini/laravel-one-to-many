@@ -28,7 +28,8 @@
                     <tr>
                         <th scope="row">{{ $type->id }}</th>
                         <td>{{ $type->label }}</td>
-                        <td> <span class="badge" style="background-color: {{ $type->color }}">{{ $type->color }}</span>
+                        <td>
+                            <span class="badge" style="background-color: {{ $type->color }}">{{ $type->color }}</span>
                         </td>
 
                         {{-- da qui in poi i bottoni per le interazioni --}}
