@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 // deve andare a perscare il controller dalla cartella controllers
 use App\Http\Controllers\Controller;
 
-// per usare la classe STR
-use Illuminate\Support\Str;
+// uso i validatori
+use App\Http\Requests\StoreTypeRequest;
 
 class TypeController extends Controller
 {
@@ -39,11 +39,17 @@ class TypeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * *@return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $type = new Type();
+        $type->fill($data);
+        $type->save();
+
+        return redirect()->route('admin.types.show', $type);
     }
 
     /**

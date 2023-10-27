@@ -13,6 +13,7 @@ class Type extends Model
 
     protected $fillable = [
         'label',
+        'color',
     ];
 
     // inserisco la relazione tra i modelli (da fare anche nel secondo modello)
