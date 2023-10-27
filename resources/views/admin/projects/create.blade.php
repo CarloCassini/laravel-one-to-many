@@ -8,7 +8,6 @@
 
 @section('content')
     <div class="container mt-5">
-        @dump($types)
 
         {{-- mostra tutti gli errori riscontrati nella validazione --}}
         @if ($errors->any())
@@ -66,7 +65,7 @@
         is-invalid
       @enderror" id="description"
                     name="description" rows="5">{{ old('description') }}</textarea>
-                @error('git_url')
+                @error('description')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
