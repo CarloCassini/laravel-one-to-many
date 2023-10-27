@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 
 // uso i validatori
 use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 
 class TypeController extends Controller
 {
@@ -56,7 +57,7 @@ class TypeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
+     * *@return \Illuminate\Http\Response
      */
     public function show(Type $type)
     {
@@ -67,11 +68,11 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
+     ** @return \Illuminate\Http\Response
      */
     public function edit(Type $type)
     {
-        //
+        return view("admin.types.edit", compact("type"));
     }
 
     /**
@@ -81,9 +82,12 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $data = $request->validated();
+        $type->update($data);
+
+        return redirect()->route("admin.types.show", $type);
     }
 
     /**

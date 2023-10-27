@@ -9,6 +9,7 @@
 @section('content')
     <div class="container mt-5">
 
+        {{-- mostra tutti gli errori riscontrati nella validazione --}}
         @if ($errors->any())
             <div class="alert alert-warning">
                 <h5>correggi i seguenti errori</h5>
@@ -26,11 +27,12 @@
                 back to index
             </div>
         </a>
-        {{-- <a class="" href="{{route('admin.projects.delete')}}"> --}}
-        <div class="my-3 btn btn-danger" data-bs-toggle="modal" data-bs-target="#ciccio{{ $project->id }}">
+
+        {{-- per il delete --}}
+        <div class="my-3 btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $project->id }}">
             delete item
         </div>
-        {{-- </a> --}}
+
 
         <section>
             <form action="{{ route('admin.projects.update', $project) }}" method="POST">
@@ -95,7 +97,7 @@
 
 @section('modals')
     <!-- Modal -->
-    <div class="modal fade" id="ciccio{{ $project->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modal-{{ $project->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
